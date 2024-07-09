@@ -11,8 +11,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -25,7 +23,6 @@ import com.example.businesscard.ui.theme.BusinessCardTheme
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Email
 import androidx.compose.material.icons.rounded.Phone
@@ -50,7 +47,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = Color(intHex)
                 ) {
-
+                    val image = painterResource(R.drawable.android_logo)
+                    BusinessCardContainer(
+                        image = image,
+                        name = stringResource(R.string.name),
+                        title = stringResource(R.string.title),
+                        phoneNumber = stringResource(R.string.phone),
+                        shareSocial = stringResource(R.string.social),
+                        email = stringResource(R.string.email)
+                    )
                 }
             }
         }
@@ -71,8 +76,13 @@ fun BusinessCardContainer(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        AboutComponent(image = image, name = name , title = title)
-        ContactComponent(phoneNumber = phoneNumber, shareSocial = shareSocial , email = email )
+        AboutComponent(image = image, name = name, title = title, modifier = Modifier.weight(1f))
+        ContactComponent(
+            phoneNumber = phoneNumber,
+            shareSocial = shareSocial,
+            email = email,
+            modifier = Modifier.weight(1f)
+        )
     }
 }
 
@@ -174,9 +184,9 @@ fun BusinessCardPreview() {
         val image = painterResource(R.drawable.android_logo)
         BusinessCardContainer(
             image = image,
-            name = stringResource(R.string.name) ,
-            title = stringResource(R.string.title) ,
-            phoneNumber = stringResource(R.string.phone) ,
+            name = stringResource(R.string.name),
+            title = stringResource(R.string.title),
+            phoneNumber = stringResource(R.string.phone),
             shareSocial = stringResource(R.string.social),
             email = stringResource(R.string.email)
         )
