@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BusinessCard</string>
+    <string name="name">Christopher Høe</string>
+    <string name="title">Software engineer</string>
+    <string name="phone">+47 98769538</string>
+    <string name="social">https://www.linkedin.com/in/christopher-h%C3%B8e-3b7924257/</string>
+    <string name="email">christopher.hoee@gmail.com</string>
+</resources>
